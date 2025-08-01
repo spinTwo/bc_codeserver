@@ -21,7 +21,7 @@ export PASSWORD="$password"
 # Print compute node.
 echo "$(date): Running on compute node $(hostname):$port"
 
-module load project/ondemand <%= context.auto_modules_app_code_server %>
+module load <%= context.version %>
 
 CPP_FILE="<%= working_dir.to_s %>/.vscode/c_cpp_properties.json"
 

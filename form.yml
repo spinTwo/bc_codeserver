@@ -1,16 +1,24 @@
 
 ---
-cluster: 
-  - "ascend"
-  - "pitzer"
+description: |
+  This app will launch a VSCode server IDE on the spinTwo slurm cluster. The server is protected
+  by a password stored in the `connection.yml` file.
+
+cluster:
+  - "slurm"
 form:
+  - version
   - auto_accounts
   - bc_num_hours
   - working_dir
-  - auto_modules_app_code_server
 attributes:
-  auto_modules_app_code_server:
-    default: false
+  version:
+    widget: select
+    label: "VSCode Server version"
+    help: "This defines the version of VSCode you want to load."
+    options:
+      - [ "4.102.3", "code-server/4.102.3" ]
+
   working_dir:
     widget: "path_selector"
     label: "Working Directory"
